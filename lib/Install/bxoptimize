@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+
+//$_SERVER['DOCUMENT_ROOT'] = realpath(dirname(dirname(__DIR__)).'/web');
+$_SERVER['DOCUMENT_ROOT'] = realpath(dirname(dirname(__DIR__)));
+$DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
+
+//Подключаем автозагрузку классов композера.
+//require_once dirname(__DIR__) . '/autoload.php';
+require_once dirname(dirname(__DIR__)) . '/vendor/autoload.php';
+
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->add(new \Dumkaaa\BxOptimize\Cli\SymfonyOptimize());
+
+$application->run();

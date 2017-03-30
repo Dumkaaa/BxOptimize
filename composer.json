@@ -1,0 +1,32 @@
+{
+  "name": "dumkaaa/bxoptimize",
+  "description": "",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.9",
+    "symfony/console": "^3.2"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Dumkaaa\\BxOptimize\\": "lib/"
+    }
+  },
+  "scripts": {
+    "bxoptimize-scripts": [
+      "Dumkaaa\\BxOptimize\\Install\\Installer::getBinaries"
+    ],
+    "post-install-cmd": [
+      "@bxoptimize-scripts"
+    ],
+    "post-update-cmd": [
+      "@bxoptimize-scripts"
+    ]
+  },
+  "bin": [
+    "bin/bxoptimize"
+  ]
+}

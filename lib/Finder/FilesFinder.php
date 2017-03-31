@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Dumkaaa\BxOptimize\Finder;
-
 
 use Exception;
 
@@ -21,7 +19,6 @@ class FilesFinder implements FinderInterface
             throw new Exception('Путь не может быть пустым или нет доступа');
         }
         $this->path = $path;
-
     }
 
     /**
@@ -33,7 +30,7 @@ class FilesFinder implements FinderInterface
         $basePath = $_SERVER['DOCUMENT_ROOT'];
 
         return new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($basePath . '/' . $path)
+            new \RecursiveDirectoryIterator($basePath.'/'.$path)
         );
     }
 }

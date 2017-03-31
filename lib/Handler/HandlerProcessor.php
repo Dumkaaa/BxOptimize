@@ -1,23 +1,21 @@
 <?php
 
-
 namespace Dumkaaa\BxOptimize\Handler;
-
 
 class HandlerProcessor
 {
     /** @var array Стандартные обработчики */
     private $defaultHandlers = [
-        'image' => __NAMESPACE__ . '\ImageHandler',
+        'image' => __NAMESPACE__.'\ImageHandler',
         //'css' => __NAMESPACE__ . '\CssHandler',
     ];
 
     /** @var array Включенные обработчики */
     protected $handlers = [];
 
-
     /**
-     * Включаем либо обработчики из переданного набора, либо все стандартные
+     * Включаем либо обработчики из переданного набора, либо все стандартные.
+     *
      * @param array $handlers
      */
     public function __construct(array $handlers)
@@ -28,7 +26,8 @@ class HandlerProcessor
     }
 
     /**
-     * Включает обработчики из массива
+     * Включает обработчики из массива.
+     *
      * @param array $handlers
      */
     public function enableHandlers(array $handlers)
@@ -43,27 +42,30 @@ class HandlerProcessor
     }
 
     /**
-     * Включает обработчик из списка доступных обработчиков
+     * Включает обработчик из списка доступных обработчиков.
+     *
      * @param string $key Ключ-имя обработчика
+     *
      * @throws \Exception
      */
     public function enableHandler($key)
     {
-        if(!$key) {
-            throw new \Exception("Не передан ключ обработчика");
+        if (!$key) {
+            throw new \Exception('Не передан ключ обработчика');
         } else {
             $key = strtolower(trim($key));
         }
 
-        if(isset($this->defaultHandlers[$key])) {
-            $this->handlers[$key] = new $this->defaultHandlers[$key];
+        if (isset($this->defaultHandlers[$key])) {
+            $this->handlers[$key] = new $this->defaultHandlers[$key]();
         } else {
             throw new \Exception("Обработчик $key не найден");
         }
     }
 
     /**
-     * Возврашает включенные обработчики
+     * Возврашает включенные обработчики.
+     *
      * @return array
      */
     public function getHandlers()
@@ -71,24 +73,24 @@ class HandlerProcessor
         return $this->handlers;
     }
 
-
     /**
-     * Добавляет новый обработчик и сразу включает его
-     * @param string $key Ключ-имя обработчика
+     * Добавляет новый обработчик и сразу включает его.
+     *
+     * @param string $key       Ключ-имя обработчика
      * @param string $classname Класс обработчика
-     * @param bool $replace Заменять, если уже есть такой обработчик
+     * @param bool   $replace   Заменять, если уже есть такой обработчик
+     *
      * @return bool
      */
     public function addHandler($key, $classname, $replace = false)
     {
         $return = false;
 
-        if(!isset($this->handlers[$key]) || $replace) {
-            $this->handlers[$key] = new $classname;
-            $return =  true;
+        if (!isset($this->handlers[$key]) || $replace) {
+            $this->handlers[$key] = new $classname();
+            $return = true;
         }
 
         return $return;
     }
-
 }

@@ -7,7 +7,7 @@ class HandlerProcessor
     /** @var array Стандартные обработчики */
     private $defaultHandlers = [
         'image' => __NAMESPACE__.'\ImageHandler',
-        'css' => __NAMESPACE__ .'\CssHandler',
+        'css'   => __NAMESPACE__.'\CssHandler',
     ];
 
     /** @var array Включенные обработчики */

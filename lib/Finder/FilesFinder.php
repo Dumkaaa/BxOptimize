@@ -30,7 +30,7 @@ class FilesFinder implements FinderInterface
         $basePath = $_SERVER['DOCUMENT_ROOT'];
 
         return (array) new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($basePath . '/' . $path)
+            new \RecursiveDirectoryIterator($basePath.'/'.$path)
         );
     }
 }

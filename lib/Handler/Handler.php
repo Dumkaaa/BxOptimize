@@ -15,7 +15,7 @@ abstract class Handler implements HandlerInterface
      */
     public function canHandleFile($file = null)
     {
-        if (!$file) {
+        if (is_null($file)) {
             throw new \Exception('В обработчик '.get_class()." передано неверное имя файла: $file");
         }
 

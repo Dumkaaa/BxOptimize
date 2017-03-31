@@ -31,8 +31,6 @@ class SymfonyOptimize extends Command
         $path = $input->getArgument('path');
         $handlers = $input->getArgument('handlers');
 
-        var_dump($path);
-        var_dump($handlers);
         try {
             $finder = new \Dumkaaa\BxOptimize\Finder\FilesFinder($path);
             $handler = new \Dumkaaa\BxOptimize\Handler\HandlerProcessor($handlers);

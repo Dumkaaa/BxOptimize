@@ -29,8 +29,8 @@ class FilesFinder implements FinderInterface
         $path = $path ?: $this->path;
         $basePath = $_SERVER['DOCUMENT_ROOT'];
 
-        return new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($basePath.'/'.$path)
+        return (array) new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($basePath . '/' . $path)
         );
     }
 }

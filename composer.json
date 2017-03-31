@@ -27,6 +27,6 @@
     ]
   },
   "bin": [
-    "bin/bxoptimize"
+    "bin/Install/bxoptimize"
   ]
 }

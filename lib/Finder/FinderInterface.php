@@ -18,7 +18,7 @@ interface FinderInterface
      *
      * @param string $path
      *
-     * @return \RecursiveIteratorIterator
+     * @return array
      */
     public function findFiles($path = null);
 }

@@ -11,15 +11,10 @@ class Installer
         'png'      => 'optipng',
         'jpg'      => 'jpegtran',
         'pngquant' => 'pngquant',
-        //"webp" => "cwebp",
     ];
 
     protected static $extByPlatforms = [
-        //"win" => ".exe",
         'linux' => '-linux',
-        //"freebsd" => "-fbsd",
-        //"darwin" => "-mac",
-        //"sunos" =>  "-sol",
     ];
 
     /**

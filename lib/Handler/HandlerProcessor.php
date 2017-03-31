@@ -7,7 +7,7 @@ class HandlerProcessor
     /** @var array Стандартные обработчики */
     private $defaultHandlers = [
         'image' => __NAMESPACE__.'\ImageHandler',
-        //'css' => __NAMESPACE__ . '\CssHandler',
+        'css' => __NAMESPACE__ .'\CssHandler',
     ];
 
     /** @var array Включенные обработчики */
@@ -50,7 +50,7 @@ class HandlerProcessor
      */
     public function enableHandler($key)
     {
-        if (!$key) {
+        if (is_null($key)) {
             throw new \Exception('Не передан ключ обработчика');
         } else {
             $key = strtolower(trim($key));

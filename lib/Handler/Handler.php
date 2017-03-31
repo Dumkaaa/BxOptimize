@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Dumkaaa\BxOptimize\Handler;
-
 
 abstract class Handler implements HandlerInterface
 {
@@ -17,8 +15,8 @@ abstract class Handler implements HandlerInterface
      */
     public function canHandleFile($file = null)
     {
-        if(!$file) {
-            throw new \Exception("В обработчик " . get_class() . " передано неверное имя файла: $file");
+        if (!$file) {
+            throw new \Exception('В обработчик '.get_class()." передано неверное имя файла: $file");
         }
 
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
@@ -33,13 +31,14 @@ abstract class Handler implements HandlerInterface
     {
         $this->files[] = $file;
     }
+
     /**
      * {@inheritdoc}
      */
     public function handleQueue()
     {
         foreach ($this->files as $file) {
-            print(get_class() . " обрабатывает файл: $file\n");
+            echo get_class()." обрабатывает файл: $file\n";
         }
         // TODO: Implement handleQueue() method.
     }

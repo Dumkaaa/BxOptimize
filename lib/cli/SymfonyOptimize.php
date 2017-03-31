@@ -26,12 +26,10 @@ class SymfonyOptimize extends Command
             );
     }
 
-
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $path = $input->getArgument('path');
         $handlers = $input->getArgument('handlers');
-
 
         var_dump($path);
         var_dump($handlers);
@@ -43,10 +41,8 @@ class SymfonyOptimize extends Command
             $optimizer->optimize();
 
             $output->writeln('<info>BxOptimization set up.</info>');
-
         } catch (\Exception $e) {
             $output->writeln('<error>'.get_class($e).': '.$e->getMessage().'</error>');
         }
     }
-
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Dumkaaa\BxOptimize;
-
 
 use Dumkaaa\BxOptimize\Handler\HandlerInterface;
 
@@ -34,7 +32,6 @@ class Optimizer implements OptimizerInterface
         $this->findFiles();
         $this->setQueue();
         $this->handleQueue();
-
     }
 
     private function setQueue()
@@ -64,5 +61,4 @@ class Optimizer implements OptimizerInterface
     {
         $this->files = $this->finder->findFiles();
     }
-
 }

@@ -25,7 +25,7 @@ class Installer
      */
     public static function getBinaries(Event $event)
     {
-        $dir = self::getRootPath().'/bin';
+        $dir = self::getRootPath() . '/bin';
 
         if (!file_exists($dir)) {
             mkdir($dir);
@@ -36,11 +36,11 @@ class Installer
         foreach (self::$extByPlatforms as $ext) {
             foreach (self::$tools as $tool) {
                 file_put_contents(
-                    $dir.'/'.$tool.$ext,
-                    fopen('https://github.com/nosilver4u/ewww-image-optimizer/raw/master/binaries/'.$tool.$ext, 'r')
+                    $dir . '/' . $tool . $ext,
+                    fopen('https://github.com/nosilver4u/ewww-image-optimizer/raw/master/binaries/' . $tool . $ext, 'r')
                 );
-                chmod($dir.'/'.$tool.$ext, 0754);
-                $event->getIO()->write($tool.$ext);
+                chmod($dir . '/' . $tool . $ext, 0754);
+                $event->getIO()->write($tool . $ext);
             }
         }
 

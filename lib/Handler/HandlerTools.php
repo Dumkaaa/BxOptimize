@@ -49,7 +49,7 @@ class HandlerTools
         ],
     ];
 
-    public static function getBinaryHandler($type){
+    public static function getBinaryHandler($type) {
 
         $handlers = self::getBinaryHandlers();
 
@@ -59,7 +59,7 @@ class HandlerTools
 
     }
 
-    public static function getBinaryHandlers(){
+    public static function getBinaryHandlers() {
 
         $os = strtolower(PHP_OS);
         if (substr($os, 0, 3) == "win") {

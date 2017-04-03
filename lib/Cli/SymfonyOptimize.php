@@ -40,7 +40,7 @@ class SymfonyOptimize extends Command
 
             $output->writeln('<info>BxOptimization set up.</info>');
         } catch (\Exception $e) {
-            $output->writeln('<error>'.get_class($e).': '.$e->getMessage().'</error>');
+            $output->writeln('<error>' . get_class($e) . ': ' . $e->getMessage() . '</error>');
         }
     }
 }

@@ -36,7 +36,7 @@ class Installer
         foreach (self::$extByPlatforms as $ext) {
             foreach (self::$tools as $tool) {
                 file_put_contents(
-                    $dir.'/'.$tool,
+                    $dir.'/'.$tool.$ext,
                     fopen('https://github.com/nosilver4u/ewww-image-optimizer/raw/master/binaries/'.$tool.$ext, 'r')
                 );
                 $event->getIO()->write($tool.$ext);

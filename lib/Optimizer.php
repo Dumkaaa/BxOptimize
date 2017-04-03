@@ -43,7 +43,6 @@ class Optimizer implements OptimizerInterface
                     continue;
                 } else {
                     $handler->queueFile($file);
-                    break;
                 }
             }
         }

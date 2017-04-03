@@ -52,7 +52,7 @@ class HandlerTools
 
         $handlers = self::getBinaryHandlers();
 
-        $handlerPath = dirname(dirname(dirname(__DIR__))) . 'bin/';
+        $handlerPath = dirname(dirname(__DIR__)) . '/bin/';
 
         return isset($handlers[$type]) ? $handlerPath . $handlers[$type] : false;
 

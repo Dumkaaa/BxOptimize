@@ -29,7 +29,7 @@ class FilesFinder implements FinderInterface
     {
         $path = $path ?: $this->path;
 
-        return (array) new \RecursiveIteratorIterator(
+        return new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($path)
         );
     }

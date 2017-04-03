@@ -16,7 +16,7 @@ abstract class Handler implements HandlerInterface
     public function canHandleFile($file = null)
     {
         if (is_null($file)) {
-            throw new \Exception('В обработчик '.get_class()." передано неверное имя файла: $file");
+            throw new \Exception('В обработчик ' . get_class() . " передано неверное имя файла: $file");
         }
 
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
@@ -38,7 +38,7 @@ abstract class Handler implements HandlerInterface
     public function handleQueue()
     {
         foreach ($this->files as $file) {
-            echo get_class()." обрабатывает файл: $file\n";
+            echo get_class() . " обрабатывает файл: $file\n";
         }
         // TODO: Implement handleQueue() method.
     }

@@ -1,5 +1,7 @@
 # BxOptimize
 
+Библиотека под 1C-Битрикс для оптимизации и сжатия картинок, стилей, скриптов  прочей статики.
+
 [![Latest Stable Version](https://poser.pugx.org/dumkaaa/bxoptimize/v/stable)](https://packagist.org/packages/dumkaaa/bxoptimize)
 [![Latest Unstable Version](https://poser.pugx.org/dumkaaa/bxoptimize/v/unstable)](https://packagist.org/packages/dumkaaa/bxoptimize)
 [![PHP version](https://badge.fury.io/ph/dumkaaa%2Fbxoptimize.svg)](https://badge.fury.io/ph/dumkaaa%2Fbxoptimize)
@@ -17,3 +19,59 @@
 [![PHPPackages Rank](http://phppackages.org/p/dumkaaa/bxoptimize/badge/rank.svg)](http://phppackages.org/p/dumkaaa/bxoptimize)
 
 [![composer.lock](https://poser.pugx.org/dumkaaa/bxoptimize/composerlock)](https://packagist.org/packages/dumkaaa/bxoptimize)
+
+## Установка
+
+```bash
+composer require dumkaaa/bxoptimize
+```
+## Базовое использование
+
+* Запуск из PHP
+
+    ```php
+    $path = 'path/to/dir'; // пусть к папке для поиска файлов (обязательный)
+    $finder = new \Dumkaaa\BxOptimize\Finder\FilesFinder($path);
+    
+    $handlers = [ //массив обработчиков (необязательный, по умолчанию - все)
+        'image',
+        'css',
+    ]; 
+    $handler = new \Dumkaaa\BxOptimize\Handler\HandlerProcessor($handlers);
+    
+    $optimizer = new \Dumkaaa\BxOptimize\Optimizer($finder, $handler);
+    $optimizer->optimize();
+    ```
+
+* Запуск из консоли
+    
+    ```bash
+    php path/to/vendor/bin/bxoptimize bxoptimize:optimize path/to/dir [<image css js>]
+    ```
+    Параметры:
+    `path/to/dir` - пусть к папке для поиска файлов (обязательный)
+    `[<images css js>]` - массив обработчиков (необязательный, по умолчанию - все)
+
+* Запуск из cli
+    * В файл cli.php добавить строку:
+        ```php
+        $application->add(new \Dumkaaa\BxOptimize\Cli\SymfonyOptimize());
+        ```
+    
+    * Запуск:
+        ```bash
+        php cli.php bxoptimize:optimize path/to/dir [<image css js>]
+        ```
+## Расширенное использование
+
+Можно подключать свои обработчики или заменять стандартные. При этом класс обработчика должен наследоваться 
+от `Dumkaaa\BxOptimize\Handler\Handler` или реализовывать интерфейс `Dumkaaa\BxOptimize\Handler\HandlerInterface`.
+
+Кастомные обработчики должны быть добавлены в массив обработчиков ($handlers) 
+перед запуском или вызовом метода `addHandler($key, $classname, $replace = false)` 
+класса `Dumkaaa\BxOptimize\Handler\HandlerProcessor`
+
+```php
+    $handler->addHandler('css', '\\My\\Custom\\Handler\\CssHandler');
+```
+

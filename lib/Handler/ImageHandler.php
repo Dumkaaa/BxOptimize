@@ -16,9 +16,21 @@ class ImageHandler extends Handler
      */
     public function handleQueue()
     {
-        foreach ($this->files as $file) {
-            echo get_class()." обрабатывает файл: $file\n";
+        $handlers = [];
+        foreach ($this->validExt as $ext) {
+            $handlers[$ext] = HandlerTools::getBinaryHandler($ext);
         }
-        // TODO: Implement handleQueue() method.
+
+        foreach ($this->files as $file) {
+
+            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+
+            if($handlers[$ext]) {
+                echo get_class()." обрабатывает файл: $file\n";
+                exec($handlers[$ext] . ' - o2 ' . escapeshellarg($file));
+            } else {
+                echo "Не найден бинарный обработчик для файла: $file\n";
+            }
+        }
     }
 }

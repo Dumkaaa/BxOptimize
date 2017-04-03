@@ -10,6 +10,11 @@ class ImageHandler extends Handler
         'jpeg',
         'jpg',
     ];
+    protected $args = [
+        'png' => ' -o2 ',
+        'jpg' => '  -progressive -copy none -optimize -outfile %s %s', // dest, src
+        'jpeg' => '  -progressive -copy none -optimize -outfile %s %s', // dest, src
+    ];
 
     /**
      * {@inheritdoc}
@@ -27,7 +32,15 @@ class ImageHandler extends Handler
 
             if($handlers[$ext]) {
                 echo get_class()." обрабатывает файл: $file\n";
-                exec($handlers[$ext] . ' - o2 ' . escapeshellarg($file));
+                switch ($ext) {
+                    case 'png':
+                        exec($handlers[$ext] . ' ' . $this->args[$ext]  . ' ' . escapeshellarg($file));
+                        break;
+                    case 'jpg':
+                    case 'jpeg':
+                        exec($handlers[$ext]  . ' ' . $this->args[$ext]  . ' ' . escapeshellarg($file) . ' ' . escapeshellarg($file));
+                        break;
+                }
             } else {
                 echo "Не найден бинарный обработчик для файла: $file\n";
             }

@@ -11,6 +11,7 @@ class HandlerTools
             "gif" => "gifsicle.exe",
             "png" => "optipng.exe",
             "jpg" =>  "jpegtran.exe",
+            "jpeg" =>  "jpegtran.exe",
             "pngquant" => "pngquant.exe",
             "webp" => "cwebp.exe",
         ],

@@ -15,6 +15,7 @@ class Installer
 
     protected static $extByPlatforms = [
         'linux' => '-linux',
+        'win' => '.exe',
     ];
 
     /**

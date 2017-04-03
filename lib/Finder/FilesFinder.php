@@ -14,7 +14,8 @@ class FilesFinder implements FinderInterface
      */
     public function __construct($path)
     {
-        $path = trim($path, '\/');
+        $basePath = $_SERVER['DOCUMENT_ROOT'];
+        $path = $basePath .'/'. trim($path, '\/');
         if (empty($path) || !(is_dir($path) || is_file($path)) || !is_writable($path)) {
             throw new Exception('Путь не может быть пустым или нет доступа');
         }
@@ -27,10 +28,9 @@ class FilesFinder implements FinderInterface
     public function findFiles($path = null)
     {
         $path = $path ?: $this->path;
-        $basePath = $_SERVER['DOCUMENT_ROOT'];
 
         return (array) new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($basePath.'/'.$path)
+            new \RecursiveDirectoryIterator($path)
         );
     }
 }

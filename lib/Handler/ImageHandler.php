@@ -11,9 +11,9 @@ class ImageHandler extends Handler
         'jpg',
     ];
     protected $args = [
-        'png' => ' -o2 ',
-        'jpg' => '  -progressive -copy none -optimize -outfile %s %s', // dest, src
-        'jpeg' => '  -progressive -copy none -optimize -outfile %s %s', // dest, src
+        'png' => ' -o2 %s',
+        'jpg' => ' -progressive -copy none -optimize -outfile %s %s', // dest, src
+        'jpeg' => ' -progressive -copy none -optimize -outfile %s %s', // dest, src
     ];
 
     /**
@@ -28,19 +28,29 @@ class ImageHandler extends Handler
 
         foreach ($this->files as $file) {
 
+            $command = false;
+
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
             if($handlers[$ext]) {
+
                 echo get_class()." обрабатывает файл: $file\n";
+
+
                 switch ($ext) {
                     case 'png':
-                        exec($handlers[$ext] . ' ' . $this->args[$ext]  . ' ' . escapeshellarg($file));
+                        $command = sprintf($this->args[$ext], escapeshellarg($file));
                         break;
                     case 'jpg':
                     case 'jpeg':
-                        exec($handlers[$ext]  . ' ' . $this->args[$ext]  . ' ' . escapeshellarg($file) . ' ' . escapeshellarg($file));
+                        $command =  sprintf($this->args[$ext], escapeshellarg($file), escapeshellarg($file . ".original"));
                         break;
                 }
+                if (!file_exists($file . ".original") && $command) {
+                    copy($file, $file . ".original");
+                    exec($handlers[$ext]  . $command);
+                }
+
             } else {
                 echo "Не найден бинарный обработчик для файла: $file\n";
             }

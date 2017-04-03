@@ -48,6 +48,6 @@ class Installer
 
     public static function getRootPath()
     {
-        return dirname(__DIR__);
+        return dirname(dirname(__DIR__));
     }
 }

@@ -24,6 +24,7 @@
 
 ```bash
 composer require dumkaaa/bxoptimize
+composer run-script post-install-cmd -d ./vendor/Dumkaaa/bxoptimize
 ```
 ## Базовое использование
 

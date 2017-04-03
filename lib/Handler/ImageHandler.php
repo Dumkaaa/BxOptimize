@@ -34,9 +34,6 @@ class ImageHandler extends Handler
 
             if($handlers[$ext]) {
 
-                echo get_class()." обрабатывает файл: $file\n";
-
-
                 switch ($ext) {
                     case 'png':
                         $command = sprintf($this->args[$ext], escapeshellarg($file));

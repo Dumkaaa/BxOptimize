@@ -39,6 +39,7 @@ class Installer
                     $dir.'/'.$tool.$ext,
                     fopen('https://github.com/nosilver4u/ewww-image-optimizer/raw/master/binaries/'.$tool.$ext, 'r')
                 );
+                chmod($dir.'/'.$tool.$ext, 0754);
                 $event->getIO()->write($tool.$ext);
             }
         }

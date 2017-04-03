@@ -6,8 +6,8 @@ class HandlerProcessor
 {
     /** @var array Стандартные обработчики */
     private $defaultHandlers = [
-        'image' => __NAMESPACE__.'\ImageHandler',
-        'css'   => __NAMESPACE__.'\CssHandler',
+        'image' => '\\Dumkaaa\\BxOptimize\\Handler\\ImageHandler',
+        'css'   => '\\Dumkaaa\\BxOptimize\\Handler\\CssHandler',
     ];
 
     /** @var array Включенные обработчики */

@@ -32,7 +32,7 @@ class ImageHandler extends Handler
 
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
-            if($handlers[$ext]) {
+            if ($handlers[$ext]) {
 
                 switch ($ext) {
                     case 'png':
@@ -40,12 +40,12 @@ class ImageHandler extends Handler
                         break;
                     case 'jpg':
                     case 'jpeg':
-                        $command =  sprintf($this->args[$ext], escapeshellarg($file), escapeshellarg($file . ".original"));
+                        $command = sprintf($this->args[$ext], escapeshellarg($file), escapeshellarg($file . ".original"));
                         break;
                 }
                 if (!file_exists($file . ".original") && $command) {
                     copy($file, $file . ".original");
-                    exec($handlers[$ext]  . $command);
+                    exec($handlers[$ext] . $command);
                 }
 
             } else {

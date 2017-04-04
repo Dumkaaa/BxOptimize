@@ -15,7 +15,7 @@ class FilesFinder implements FinderInterface
     public function __construct($path)
     {
         $basePath = $_SERVER['DOCUMENT_ROOT'];
-        $path = $basePath .'/'. trim($path, '\/');
+        $path = $basePath . '/' . trim($path, '\/');
         if (empty($path) || !(is_dir($path) || is_file($path)) || !is_writable($path)) {
             throw new Exception('Путь не может быть пустым или нет доступа');
         }

@@ -15,14 +15,14 @@ interface HandlerInterface
      */
     public function canHandleFile($file);
 
-     /**
-      * Записывает файл в очередь на обработку.
-      *
-      * @param string $file Путь к файлу
-      *
-      * @return void
-      */
-     public function queueFile($file);
+        /**
+         * Записывает файл в очередь на обработку.
+         *
+         * @param string $file Путь к файлу
+         *
+         * @return void
+         */
+        public function queueFile($file);
 
     /**
      * Обрабатывает файлы в очереди.

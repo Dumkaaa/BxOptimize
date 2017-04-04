@@ -7,24 +7,15 @@
 [![PHP version](https://badge.fury.io/ph/dumkaaa%2Fbxoptimize.svg)](https://badge.fury.io/ph/dumkaaa%2Fbxoptimize)
 [![Dependency Status](https://gemnasium.com/badges/github.com/Dumkaaa/BxOptimize.svg)](https://gemnasium.com/github.com/Dumkaaa/BxOptimize)
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/?branch=master)
-[![StyleCI](https://styleci.io/repos/86715035/shield?branch=master)](https://styleci.io/repos/86715035)
-[![Code Climate](https://codeclimate.com/github/Dumkaaa/BxOptimize/badges/gpa.svg)](https://codeclimate.com/github/Dumkaaa/BxOptimize)
-[![Issue Count](https://codeclimate.com/github/Dumkaaa/BxOptimize/badges/issue_count.svg)](https://codeclimate.com/github/Dumkaaa/BxOptimize)
+Позволяет сжимать и оптимизировать размер файлов картинок (`png, jpg, gif, webp`), стилей (`css`) и скриптов (`js`).
 
-[![Build Status](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/build-status/master)
-[![Code Coverage](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/?branch=master)
-
-[![License](https://poser.pugx.org/dumkaaa/bxoptimize/license)](https://packagist.org/packages/dumkaaa/bxoptimize)
-[![PHPPackages Rank](http://phppackages.org/p/dumkaaa/bxoptimize/badge/rank.svg)](http://phppackages.org/p/dumkaaa/bxoptimize)
-
-[![composer.lock](https://poser.pugx.org/dumkaaa/bxoptimize/composerlock)](https://packagist.org/packages/dumkaaa/bxoptimize)
+При этом оригинальные файлы сохраняются рядом с измененным в виде `file.png > file.png.original` для возможности восстановления.
 
 ## Установка
 
 ```bash
 composer require dumkaaa/bxoptimize
-composer run-script post-install-cmd -d ./vendor/Dumkaaa/bxoptimize
+composer run-script post-install-cmd -d ./vendor/dumkaaa/bxoptimize
 ```
 ## Базовое использование
 
@@ -76,3 +67,17 @@ composer run-script post-install-cmd -d ./vendor/Dumkaaa/bxoptimize
     $handler->addHandler('css', '\\My\\Custom\\Handler\\CssHandler');
 ```
 
+## Badges
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/?branch=master)
+[![StyleCI](https://styleci.io/repos/86715035/shield?branch=master)](https://styleci.io/repos/86715035)
+[![Code Climate](https://codeclimate.com/github/Dumkaaa/BxOptimize/badges/gpa.svg)](https://codeclimate.com/github/Dumkaaa/BxOptimize)
+[![Issue Count](https://codeclimate.com/github/Dumkaaa/BxOptimize/badges/issue_count.svg)](https://codeclimate.com/github/Dumkaaa/BxOptimize)
+
+[![Build Status](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Dumkaaa/BxOptimize/?branch=master)
+
+[![License](https://poser.pugx.org/dumkaaa/bxoptimize/license)](https://packagist.org/packages/dumkaaa/bxoptimize)
+[![PHPPackages Rank](http://phppackages.org/p/dumkaaa/bxoptimize/badge/rank.svg)](http://phppackages.org/p/dumkaaa/bxoptimize)
+
+[![composer.lock](https://poser.pugx.org/dumkaaa/bxoptimize/composerlock)](https://packagist.org/packages/dumkaaa/bxoptimize)

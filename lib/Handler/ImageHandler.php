@@ -11,7 +11,7 @@ class ImageHandler extends Handler
         'jpg',
     ];
     protected $args = [
-        'png' => ' -o2 %s',
+        'png' => ' -o7 %s',
         'jpg' => ' -progressive -copy none -optimize -outfile %s %s', // dest, src
         'jpeg' => ' -progressive -copy none -optimize -outfile %s %s', // dest, src
     ];

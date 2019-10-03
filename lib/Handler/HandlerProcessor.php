@@ -7,7 +7,7 @@ class HandlerProcessor
     /** @var array Стандартные обработчики */
     private $defaultHandlers = [
         'image' => '\\Dumkaaa\\BxOptimize\\Handler\\ImageHandler',
-        'css'   => '\\Dumkaaa\\BxOptimize\\Handler\\CssHandler',
+        'css' => '\\Dumkaaa\\BxOptimize\\Handler\\CssHandler',
     ];
 
     /** @var array Включенные обработчики */
@@ -17,6 +17,8 @@ class HandlerProcessor
      * Включаем либо обработчики из переданного набора, либо все стандартные.
      *
      * @param array $handlers
+     *
+     * @throws \Exception
      */
     public function __construct(array $handlers)
     {
@@ -29,6 +31,8 @@ class HandlerProcessor
      * Включает обработчики из массива.
      *
      * @param array $handlers
+     *
+     * @throws \Exception
      */
     public function enableHandlers(array $handlers)
     {

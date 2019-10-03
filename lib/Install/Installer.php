@@ -7,9 +7,9 @@ use Composer\Script\Event;
 class Installer
 {
     protected static $tools = [
-        'gif'      => 'gifsicle',
-        'png'      => 'optipng',
-        'jpg'      => 'jpegtran',
+        'gif' => 'gifsicle',
+        'png' => 'optipng',
+        'jpg' => 'jpegtran',
         'pngquant' => 'pngquant',
     ];
 

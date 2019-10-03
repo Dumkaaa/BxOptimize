@@ -27,27 +27,24 @@ class ImageHandler extends Handler
         }
 
         foreach ($this->files as $file) {
-
             $command = false;
 
             $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
             if ($handlers[$ext]) {
-
                 switch ($ext) {
                     case 'png':
                         $command = sprintf($this->args[$ext], escapeshellarg($file));
                         break;
                     case 'jpg':
                     case 'jpeg':
-                        $command = sprintf($this->args[$ext], escapeshellarg($file), escapeshellarg($file . ".original"));
+                        $command = sprintf($this->args[$ext], escapeshellarg($file), escapeshellarg($file . '.original'));
                         break;
                 }
-                if (!file_exists($file . ".original") && $command) {
-                    copy($file, $file . ".original");
+                if (!file_exists($file . '.original') && $command) {
+                    copy($file, $file . '.original');
                     exec($handlers[$ext] . $command);
                 }
-
             } else {
                 echo "Не найден бинарный обработчик для файла: $file\n";
             }

@@ -1,0 +1,23 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->exclude([
+        'runtime',
+        'vendor',
+    ])
+    ->in(__DIR__ . '/lib');
+
+$rules = [
+    '@Symfony' => true,
+    'phpdoc_inline_tag' => false,
+    'single_import_per_statement' => false,
+    'concat_space' => ['spacing' => 'one'],
+    'array_syntax' => ['syntax' => 'short'],
+    'phpdoc_no_package' => false,
+];
+
+if (class_exists('\\PhpCsFixer\\Fixer\\ControlStructure\\YodaStyleFixer')) {
+    $rules['yoda_style'] = false;
+}
+
+return PhpCsFixer\Config::create()->setRules($rules)->setFinder($finder);
